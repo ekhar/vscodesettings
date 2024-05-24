@@ -1,113 +1,172 @@
 {
-    "editor.minimap.enabled": false,
-    "workbench.activityBar.location": "hidden",
-    "window.menuBarVisibility": "toggle",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "vim.leader": " ",
-    "vim.useSystemClipboard": true,
-  
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "before": ["<leader>", "f", "m"],
-        "commands": ["editor.action.formatDocument"]
-      },
-  
-      {
-        "before": ["<leader>", "f", "w"],
-        "commands": ["workbench.action.findInFiles"]
-      },
-  
-      {
-        "before": ["<leader>", "f", "f"],
-        "commands": ["workbench.action.quickOpen"]
-      },
-  
-      {
-        "before": ["H"],
-        "commands": ["workbench.action.previousEditor"]
-      },
-      {
-        "before": ["L"],
-        "commands": ["workbench.action.nextEditor"]
-      },
-      {
-        "before": ["<C-h>"],
-        "commands": ["workbench.action.focusLeftGroup"]
-      },
-      {
-        "before": ["<C-j>"],
-        "commands": ["workbench.action.focusBelowGroup"]
-      },
-      {
-        "before": ["<C-k>"],
-        "commands": ["workbench.action.focusAboveGroup"]
-      },
-      {
-        "before": ["<C-l>"],
-        "commands": ["workbench.action.focusRightGroup"]
-      },
-      {
-        "before": ["<leader>", "x"],
-        "commands": ["workbench.action.closeActiveEditor"]
-      },
-      {
-        "before": ["<C-n>"],
-        "commands": ["workbench.action.toggleAuxiliaryBar"]
-      },
-  
-      {
-        "before": ["<C-c>"],
-        "commands": [
-          "workbench.action.files.save",
-          "editor.action.selectAll",
-          "editor.action.clipboardCopyAction",
-          "workbench.action.navigateBack"
-        ]
-      },
-  
-      {
-        "before": ["C"],
-        "commands": [
-          {
-            "command": "editor.action.startFindReplaceAction",
-            "args": {
-              "query": "<current_word>",
-              "replace": "<replacement_word>",
-              "isRegex": false,
-              "isGlobal": true
-            }
-          }
-        ]
-      },
-      {
-        "before": ["<leader>", "d"],
-        "commands": ["editor.action.addSelectionToNextFindMatch"]
-      }
-    ],
-  
-    "vim.insertModeKeyBindingsNonRecursive": [
-      {
-        "before": ["<C-r>", "\""],
-        "commands": ["editor.action.clipboardPasteAction"]
-      }
-    ],
-  
-    "vim.visualModeKeyBindings": [
-      {
-        "before": ["<leader>", "/"],
-        "commands": ["editor.action.commentLine"],
-        "when": "editorTextFocus && !editorReadonly"
-      },
-      {
-        "before": ["<leader>", "d"],
-        "commands": ["editor.action.addSelectionToNextFindMatch"]
-      }
-    ],
-    "[javascript]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.minimap.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.leader": " ",
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "breadcrumbs.enabled": false,
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s"], "commands": [":split"] },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
     },
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // panes
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["<leader>", "f", "m"],
+      "commands": ["editor.action.formatDocument"]
+    },
+
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["<leader>", "x"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    // {
+    //   "before": ["<C-n>"],
+    //   "commands": ["revealInExplorer"]
+    // },
+
+    {
+      "before": ["<C-c>"],
+      "commands": [
+        "workbench.action.files.save",
+        "editor.action.selectAll",
+        "editor.action.clipboardCopyAction",
+        "workbench.action.navigateBack"
+      ]
+    },
+    {
+      "before": ["p"],
+      "commands": [
+        "editor.action.clipboardPasteAction",
+        "editor.action.formatDocument"
+      ]
+    },
+
+    {
+      "before": ["<leader>", "d"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
+    },
+
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
     }
-  }
-  
+  ],
+
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-r>", "\""],
+      "commands": ["editor.action.clipboardPasteAction"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-l>"],
+      "commands": ["editor.action.inlineSuggest.trigger"]
+    }
+  ],
+  "github.copilot.enable": {
+    "*": true
+  },
+
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "d"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
+    },
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] }
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.activityBar.location": "hidden",
+  "window.menuBarVisibility": "toggle",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always"
+}
